@@ -1,0 +1,21 @@
+{
+    "name": "auditit/auditit-laravel",
+    "description": "Laravel Package To Interact With AuditIt Service",
+    "autoload": {
+        "psr-4": {
+            "Auditit\\AudititLaravel\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AuditIt\\AudititLaravel\\AuditItServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+            }
+        }
+    }
+}
