@@ -11,7 +11,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AuditIt\\AudititLaravel\\AuditItServiceProvider"
+                "Auditit\\AudititLaravel\\AuditItServiceProvider"
             ],
             "aliases": {
                 "Debugbar": "Barryvdh\\Debugbar\\Facade"

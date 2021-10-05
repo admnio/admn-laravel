@@ -1,6 +1,6 @@
 <?php
 
-namespace AuditIt\AudititLaravel;
+namespace Auditit\AudititLaravel;
 
 use Illuminate\Support\ServiceProvider;
 
