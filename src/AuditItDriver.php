@@ -20,21 +20,23 @@ class AuditItDriver implements AuditDriver
 
     public function audit(Auditable $model): Audit
     {
-        $actor = new User([
-            'id' => 'system',
-        ]);
-
+        $builder = AuditLogger::new();
         if (auth()->check()) {
             $actor = auth()->user();
+
+            $builder->actor($actor->getAuditIdentifier(), $actor->getAuditDisplay(), $actor->getAuditType());
+        } else {
+            $builder->actor(0, 'system', 'system');
         }
 
-        AuditLogger::new()
-            ->source('portal')
-            ->actor($actor->id, null, get_class($actor))
-            ->action('Model Operation')
-            ->addEntity($model->getPrimaryKey(), null, get_class($model))
-            ->context($model->toAudit())
-            ->save();
+        $builder->source(config('audit_logger.source'));
+
+        $builder->action('Model Operation');
+
+        $builder->addEntity($model->getAuditIdentifier(), $model->getAuditDisplay(), $model->getAuditType());
+
+        $builder->context($model->toAudit());
+        $builder->save();
 
         $implementation = Config::get('audit.implementation', \OwenIt\Auditing\Models\Audit::class);
 
