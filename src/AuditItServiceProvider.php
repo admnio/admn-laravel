@@ -26,5 +26,9 @@ class AuditItServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/audit_logger.php' => config_path('audit_logger.php'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/config/audit.php' => config_path('audit.php'),
+        ]);
     }
 }

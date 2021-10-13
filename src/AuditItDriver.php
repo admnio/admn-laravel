@@ -2,11 +2,6 @@
 
 namespace Auditit\AudititLaravel;
 
-use App\Models\User;
-use DateTime;
-use Illuminate\Support\Facades\Config;
-
-use League\Csv\Writer;
 use OwenIt\Auditing\Contracts\Audit;
 use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Contracts\AuditDriver;
@@ -38,7 +33,7 @@ class AuditItDriver implements AuditDriver
         $builder->context($model->toAudit());
         $builder->save();
 
-        $implementation = Config::get('audit.implementation', \OwenIt\Auditing\Models\Audit::class);
+        $implementation = config('audit.implementation', \OwenIt\Auditing\Models\Audit::class);
 
         return new $implementation;
     }
