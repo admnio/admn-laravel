@@ -129,10 +129,10 @@ class AuditLogger
     /**
      * @param $actorSourceIdentifier
      * @param null $displayAs
-     * @param null $type
+     * @param string $type
      * @return $this
      */
-    public function actor($actorSourceIdentifier, $displayAs = null, $type = null)
+    public function actor($actorSourceIdentifier, $displayAs = null, $type = 'user')
     {
         $this->actor = [
             'source_identifier' => $actorSourceIdentifier,
