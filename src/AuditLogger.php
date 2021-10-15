@@ -60,8 +60,13 @@ class AuditLogger
     public static function create($source, $actor, $action, $properties = [], $context = []){
         $builder = AuditLogger::new()
             ->source($source)
-            ->actor(...$actor)
             ->action($action);
+
+        if(is_array($actor)){
+            $builder->actor(...$actor);
+        }else{
+            $builder->actor($actor);
+        }
 
         if(empty($properties) === false){
             foreach($properties as $property => $value){
