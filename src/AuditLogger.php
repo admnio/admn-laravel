@@ -50,6 +50,33 @@ class AuditLogger
     }
 
     /**
+     * @param $source
+     * @param string|array $actor
+     * @param $action
+     * @param array $properties
+     * @param array $context
+     * @return array|void
+     */
+    public static function create($source, $actor, $action, $properties = [], $context = []){
+        $builder = AuditLogger::new()
+            ->source($source)
+            ->actor(...$actor)
+            ->action($action);
+
+        if(empty($properties) === false){
+            foreach($properties as $property => $value){
+                $builder->addProperty($property,$value);
+            }
+        }
+
+        if(empty($context) === false){
+            $builder->context($context);
+        }
+
+       return $builder->save();
+    }
+
+    /**
      *
      */
     public function save()
