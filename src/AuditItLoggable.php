@@ -1,6 +1,6 @@
 <?php
 
-namespace OrisIntel\AuditLog\Traits;
+namespace Auditit\AudititLaravel;
 
 trait AuditItLoggable
 {

@@ -30,7 +30,7 @@ class AuditLogger
     /**
      * @var array
      */
-    protected $properties = [];
+    protected $tags = [];
     /**
      * @var array
      */
@@ -53,25 +53,20 @@ class AuditLogger
      * @param $source
      * @param string|array $actor
      * @param $action
-     * @param array $properties
+     * @param array $tags
      * @param array $context
      * @return array|void
      */
-    public static function create($source, $actor, $action, $properties = [], $context = [])
+    public static function create($source, $actor, $action, $tags = [], $context = [])
     {
         $builder = AuditLogger::new()
             ->source($source)
             ->action($action);
 
-        if (is_array($actor)) {
-            $builder->actor(...$actor);
-        } else {
-            $builder->actor($actor);
-        }
 
         if (empty($properties) === false) {
-            foreach ($properties as $property => $value) {
-                $builder->addProperty($property, $value);
+            foreach ($properties as $property) {
+                $builder->addProperty($property);
             }
         }
 
@@ -133,13 +128,9 @@ class AuditLogger
      * @param string $type
      * @return $this
      */
-    public function actor($actorSourceIdentifier, $displayAs = null, $type = 'user')
+    public function actor($actor)
     {
-        $this->actor = [
-            'source_identifier' => $actorSourceIdentifier,
-            'display_as'        => $displayAs,
-            'type'              => $type,
-        ];
+        $this->actor = $actor;
 
         return $this;
     }
@@ -168,15 +159,11 @@ class AuditLogger
 
     /**
      * @param $property
-     * @param $value
      * @return $this
      */
-    public function addProperty($property, $value)
+    public function addProperty($property)
     {
-        $this->properties[] = [
-            'property' => $property,
-            'value'    => $value,
-        ];
+        $this->properties[] = $property;
 
         return $this;
     }
@@ -187,13 +174,9 @@ class AuditLogger
      * @param null $type
      * @return $this
      */
-    public function addEntity($entitySourceIdentifier, $displayAs, $type = null)
+    public function addEntity($entity)
     {
-        $this->entities[] = [
-            'source_identifier' => $entitySourceIdentifier,
-            'display_as'        => $displayAs,
-            'type'              => $type,
-        ];
+        $this->entities[] = $entity;
 
         return $this;
     }
