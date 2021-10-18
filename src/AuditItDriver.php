@@ -16,19 +16,20 @@ class AuditItDriver implements AuditDriver
     public function audit(Auditable $model): Audit
     {
         $builder = AuditLogger::new();
+
         if (auth()->check()) {
             $actor = auth()->user();
 
-            $builder->actor($actor->getAuditIdentifier(), $actor->getAuditDisplay(), $actor->getAuditType());
+            $builder->actor('id:' . $actor->getKey());
         } else {
-            $builder->actor(0, 'system', 'system');
+            $builder->actor('id:system');
         }
 
         $builder->source(config('audit_logger.source'));
 
         $builder->action('Model Operation');
 
-        $builder->addEntity($model->getAuditIdentifier(), $model->getAuditDisplay(), $model->getAuditType());
+        $builder->addEntity('id:' . $model->getKey());
 
         $builder->context($model->toAudit());
         $builder->save();
