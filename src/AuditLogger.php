@@ -64,9 +64,9 @@ class AuditLogger
             ->action($action);
 
 
-        if (empty($properties) === false) {
-            foreach ($properties as $property) {
-                $builder->addProperty($property);
+        if (empty($tags) === false) {
+            foreach ($tags as $tag) {
+                $builder->addTag($tags);
             }
         }
 
@@ -92,13 +92,13 @@ class AuditLogger
             'Accept'       => 'application/json',
             'Content-Type' => 'application/json',
         ])->post(config('app.url') . '/api/intake', [
-            'source'     => $this->source,
-            'actor'      => $this->actor,
-            'action'     => $this->action,
-            'entities'   => $this->entities,
-            'context'    => $this->context,
-            'properties' => $this->properties,
-            'nonce'      => empty($this->nonce) ? Str::uuid()->toString() : $this->nonce,
+            'source'   => $this->source,
+            'actor'    => $this->actor,
+            'action'   => $this->action,
+            'entities' => $this->entities,
+            'context'  => $this->context,
+            'tags'     => $this->tags,
+            'nonce'    => empty($this->nonce) ? Str::uuid()->toString() : $this->nonce,
         ]);
 
         if ($response->ok() === false) {
@@ -158,12 +158,12 @@ class AuditLogger
     }
 
     /**
-     * @param $property
+     * @param $tag
      * @return $this
      */
-    public function addProperty($property)
+    public function addTag($tag)
     {
-        $this->properties[] = $property;
+        $this->properties[] = $tag;
 
         return $this;
     }
