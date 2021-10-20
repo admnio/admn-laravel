@@ -61,7 +61,8 @@ class AuditLogger
     {
         $builder = AuditLogger::new()
             ->source($source)
-            ->action($action);
+            ->action($action)
+            ->actor($actor);
 
 
         if (empty($tags) === false) {
