@@ -66,7 +66,7 @@ class AuditLogger
 
 
         foreach ($tags as $tag) {
-            $builder->addTag($tags);
+            $builder->addTag($tag);
         }
 
 
