@@ -65,11 +65,10 @@ class AuditLogger
             ->actor($actor);
 
 
-        if (empty($tags) === false) {
-            foreach ($tags as $tag) {
-                $builder->addTag($tags);
-            }
+        foreach ($tags as $tag) {
+            $builder->addTag($tags);
         }
+
 
         if (empty($context) === false) {
             $builder->context($context);
@@ -164,7 +163,7 @@ class AuditLogger
      */
     public function addTag($tag)
     {
-        $this->properties[] = $tag;
+        $this->tags[] = $tag;
 
         return $this;
     }
