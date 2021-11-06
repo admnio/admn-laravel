@@ -12,10 +12,6 @@ use Illuminate\Support\Str;
 class AuditLogger
 {
     /**
-     * @var
-     */
-    protected $source;
-    /**
      * @var array
      */
     protected $actor = [];
@@ -50,17 +46,15 @@ class AuditLogger
     }
 
     /**
-     * @param $source
      * @param string|array $actor
      * @param $action
      * @param array $tags
      * @param array $context
      * @return array|void
      */
-    public static function create($source, $actor, $action, $tags = [], $context = [])
+    public static function create($actor, $action, $tags = [], $context = [])
     {
         $builder = AuditLogger::new()
-            ->source($source)
             ->action($action)
             ->actor($actor);
 
@@ -92,7 +86,6 @@ class AuditLogger
             'Accept'       => 'application/json',
             'Content-Type' => 'application/json',
         ])->post(config('app.url') . '/api/intake', [
-            'source'   => $this->source,
             'actor'    => $this->actor,
             'action'   => $this->action,
             'entities' => $this->entities,
@@ -109,17 +102,6 @@ class AuditLogger
             'success'  => $response->ok(),
             'contents' => $response->body(),
         ];
-    }
-
-    /**
-     * @param $source
-     * @return $this
-     */
-    public function source($source)
-    {
-        $this->source = $source;
-
-        return $this;
     }
 
     /**
