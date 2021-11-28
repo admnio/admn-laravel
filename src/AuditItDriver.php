@@ -2,6 +2,7 @@
 
 namespace Auditit\AudititLaravel;
 
+use Auditit\Auditit\AuditLogger;
 use OwenIt\Auditing\Contracts\Audit;
 use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Contracts\AuditDriver;
