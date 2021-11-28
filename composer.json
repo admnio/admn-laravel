@@ -8,7 +8,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "owen-it/laravel-auditing": "*"
+        "owen-it/laravel-auditing": "*",
+        "auditit/auditit-php": "*"
     },
     "extra": {
         "laravel": {
@@ -16,7 +17,7 @@
                 "Auditit\\AudititLaravel\\AuditItServiceProvider"
             ],
             "aliases": {
-                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+
             }
         }
     }

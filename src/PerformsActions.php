@@ -11,6 +11,6 @@ trait PerformsActions
      */
     public function logAction($action, $tags = [], $context = [])
     {
-        return AuditLogger::create('id:' . $this->{$this->getKeyName()}, $action, $tags, $context);
+        return \Auditit\Auditit\AuditLogger::create('id:' . $this->{$this->getKeyName()}, $action, $tags, $context);
     }
 }
