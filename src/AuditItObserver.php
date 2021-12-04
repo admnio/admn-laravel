@@ -34,7 +34,7 @@ class AuditItObserver
 
         AuditLogger::create(
             'id:'.auth()->user() ?: 'id:system',
-            'Created a record'.$model->getAuditModelName(),
+            'Created a '.$model->getAuditModelName().' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $createdValues
         );
@@ -68,7 +68,7 @@ class AuditItObserver
 
         AuditLogger::create(
             'id:'.auth()->user() ?: 'id:system',
-            'Updated created a record'.$model->getAuditModelName(),
+            'Updated created a '.$model->getAuditModelName().' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $updatedValues
         );
@@ -95,7 +95,7 @@ class AuditItObserver
 
         AuditLogger::create(
             'id:'.auth()->user() ?: 'id:system',
-            'Deleted a record'.$model->getAuditModelName(),
+            'Deleted a '.$model->getAuditModelName(). ' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $deletedValues
         );
