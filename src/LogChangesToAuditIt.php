@@ -21,11 +21,11 @@ trait LogChangesToAuditIt
 
     public function getAuditModelName()
     {
-        return empty($this->auditModelName) ? get_class($this) : $this->auditModelName;
+        return empty($this->auditModelName) ? get_class($this) : strtoupper($this->auditModelName);
     }
 
     public function getRedactedAuditAttributes()
     {
-        return strtoupper($this->auditModelName);
+        return $this->redactedAuditAttributes;
     }
 }
