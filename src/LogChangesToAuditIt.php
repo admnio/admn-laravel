@@ -2,8 +2,6 @@
 
 namespace Auditit\AudititLaravel;
 
-use OwenIt\Auditing\AuditableObserver;
-
 
 trait LogChangesToAuditIt
 {
@@ -18,7 +16,7 @@ trait LogChangesToAuditIt
      */
     public static function bootLogChangesToAuditIt()
     {
-        static::observe(new AuditableObserver());
+        static::observe(new AuditItObserver());
     }
 
     public function getAuditModelName()
