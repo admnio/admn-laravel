@@ -94,7 +94,7 @@ class AuditItObserver
         }
 
         AuditLogger::create(
-            'id:'.auth()->user() ?: 'id:system',
+            'id:'.auth()->user()->getKey() ?: 'id:system',
             'Deleted a '.$model->getAuditModelName(). ' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $deletedValues
