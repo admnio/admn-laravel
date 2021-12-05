@@ -68,7 +68,7 @@ class AuditItObserver
 
         AuditLogger::create(
             auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
-            'Updated created a '.$model->getAuditModelName().' record',
+            'Updated a '.$model->getAuditModelName().' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $updatedValues
         );
