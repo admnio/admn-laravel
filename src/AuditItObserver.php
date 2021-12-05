@@ -33,7 +33,7 @@ class AuditItObserver
         }
 
         AuditLogger::create(
-            'id:'.auth()->user()->getKey() ?: 'id:system',
+            auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
             'Created a '.$model->getAuditModelName().' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $createdValues
@@ -67,7 +67,7 @@ class AuditItObserver
         }
 
         AuditLogger::create(
-            'id:'.auth()->user()->getKey() ?: 'id:system',
+            auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
             'Updated created a '.$model->getAuditModelName().' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $updatedValues
@@ -94,7 +94,7 @@ class AuditItObserver
         }
 
         AuditLogger::create(
-            'id:'.auth()->user()->getKey() ?: 'id:system',
+            auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
             'Deleted a '.$model->getAuditModelName(). ' record',
             ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
             $deletedValues
