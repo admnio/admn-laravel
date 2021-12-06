@@ -19,6 +19,10 @@ class AuditItObserver
         $createdValues = [];
 
         foreach($model->getAttributes() as $key => $value){
+            if (in_array($key, $model->getIgnoredAuditAttributes())) {
+                continue;
+            }
+
             if (in_array($key, $redactedAttributes)) {
                 $updatedValues[] = [
                     'key'      => $key,
@@ -48,6 +52,10 @@ class AuditItObserver
         $updatedValues = [];
 
         foreach ($originalValues as $key => $originalValue) {
+            if (in_array($key, $model->getIgnoredAuditAttributes())) {
+                continue;
+            }
+
             if ($originalValue != $model->$key) {
 
                 if (in_array($key, $redactedAttributes)) {
@@ -82,6 +90,10 @@ class AuditItObserver
         $deletedValues = [];
 
         foreach($model->getAttributes() as $key => $value){
+            if (in_array($key, $model->getIgnoredAuditAttributes())) {
+                continue;
+            }
+            
             if (in_array($key, $redactedAttributes)) {
                 $deletedValues[] = [
                     'key'      => $key,

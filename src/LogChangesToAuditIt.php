@@ -9,6 +9,10 @@ trait LogChangesToAuditIt
 
     protected $auditModelName = '';
 
+    protected $ignoreAuditAttributes = [
+        'updated_at'
+    ];
+
     /**
      * Auditable boot logic.
      *
@@ -28,5 +32,9 @@ trait LogChangesToAuditIt
     public function getRedactedAuditAttributes()
     {
         return $this->redactedAuditAttributes;
+    }
+
+    public function getIgnoredAuditAttributes(){
+        return $this->ignoreAuditAttributes;
     }
 }
