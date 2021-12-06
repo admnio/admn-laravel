@@ -5,14 +5,6 @@ namespace Auditit\AudititLaravel;
 
 trait LogChangesToAuditIt
 {
-    protected $redactedAuditAttributes = [];
-
-    protected $auditModelName = '';
-
-    protected $ignoreAuditAttributes = [
-        'updated_at'
-    ];
-
     /**
      * Auditable boot logic.
      *
@@ -31,10 +23,10 @@ trait LogChangesToAuditIt
 
     public function getRedactedAuditAttributes()
     {
-        return $this->redactedAuditAttributes;
+        return (array)$this->redactedAuditAttributes;
     }
 
     public function getIgnoredAuditAttributes(){
-        return $this->ignoreAuditAttributes;
+        return (array)$this->ignoreAuditAttributes;
     }
 }

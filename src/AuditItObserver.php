@@ -93,7 +93,7 @@ class AuditItObserver
             if (in_array($key, $model->getIgnoredAuditAttributes())) {
                 continue;
             }
-            
+
             if (in_array($key, $redactedAttributes)) {
                 $deletedValues[] = [
                     'key'      => $key,
