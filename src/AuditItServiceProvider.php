@@ -28,10 +28,6 @@ class AuditItServiceProvider extends ServiceProvider
             __DIR__ . '/config/audit_logger.php' => config_path('audit_logger.php'),
         ]);
 
-        $this->publishes([
-            __DIR__ . '/config/audit.php' => config_path('audit.php'),
-        ]);
-
         AuditLogger::setCredentials(config('audit_logger.token'), config('audit_logger.secret'));
     }
 }
