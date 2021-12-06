@@ -66,12 +66,14 @@ class AuditItObserver
             }
         }
 
-        AuditLogger::create(
-            auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
-            'Updated a '.$model->getAuditModelName().' record',
-            ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
-            $updatedValues
-        );
+        if(count($updatedValues)) {
+            AuditLogger::create(
+                auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
+                'Updated a '.$model->getAuditModelName().' record',
+                ['model_type:'.$model->getAuditModelName(), 'model_id:'.$model->getKey()],
+                $updatedValues
+            );
+        }
     }
 
     public function deleted(Model $model)
