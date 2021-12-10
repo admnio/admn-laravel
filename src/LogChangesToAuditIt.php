@@ -29,4 +29,11 @@ trait LogChangesToAuditIt
     public function getIgnoredAuditAttributes(){
         return (array)$this->ignoreAuditAttributes;
     }
+
+    public function getAuditTags(){
+        return [
+            $this->getAuditModelName().':'.$this->getKey(),
+            'action_type:model_audit'
+        ];
+    }
 }

@@ -24,12 +24,12 @@ class AuditItObserver
             }
 
             if (in_array($key, $redactedAttributes)) {
-                $updatedValues[] = [
+                $createdValues[] = [
                     'key'      => $key,
                     'original' => $this->redact($value),
                 ];
             } else {
-                $updatedValues[] = [
+                $createdValues[] = [
                     'key'      => $key,
                     'original' => $value,
                 ];
@@ -39,7 +39,7 @@ class AuditItObserver
         AuditLogger::create(
             auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
             'Created a '.$model->getAuditModelName().' record',
-            [$model->getAuditModelName().':'.$model->getKey()],
+            $model->getAuditTags(),
             $createdValues
         );
     }
@@ -78,7 +78,7 @@ class AuditItObserver
             AuditLogger::create(
                 auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
                 'Updated a '.$model->getAuditModelName().' record',
-                [$model->getAuditModelName().':'.$model->getKey()],
+                $model->getAuditTags(),
                 $updatedValues
             );
         }
@@ -110,7 +110,7 @@ class AuditItObserver
         AuditLogger::create(
             auth()->check() ? 'id:'.auth()->user()->getKey() : 'id:system',
             'Deleted a '.$model->getAuditModelName(). ' record',
-            [$model->getAuditModelName().':'.$model->getKey()],
+            $model->getAuditTags(),
             $deletedValues
         );
     }
