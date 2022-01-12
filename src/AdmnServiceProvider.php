@@ -1,11 +1,10 @@
 <?php
 
-namespace Auditit\AudititLaravel;
+namespace Admn\Admn;
 
-use Auditit\Auditit\AuditLogger;
 use Illuminate\Support\ServiceProvider;
 
-class AuditItServiceProvider extends ServiceProvider
+class AdmnServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

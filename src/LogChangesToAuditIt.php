@@ -1,6 +1,6 @@
 <?php
 
-namespace Auditit\AudititLaravel;
+namespace Admn\Admn;
 
 
 trait LogChangesToAuditIt
@@ -12,7 +12,7 @@ trait LogChangesToAuditIt
      */
     public static function bootLogChangesToAuditIt()
     {
-        static::observe(new AuditItObserver());
+        static::observe(new AdmnObserver());
     }
 
     public function getAuditModelName()

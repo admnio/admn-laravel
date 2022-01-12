@@ -1,19 +1,19 @@
 {
-    "name": "auditit/auditit-laravel",
-    "description": "Laravel Package To Interact With AuditIt Service",
+    "name": "admn/admn-laravel",
+    "description": "Laravel Package To Interact With ADMN Service",
     "autoload": {
         "psr-4": {
-            "Auditit\\AudititLaravel\\": "src/"
+            "Admn\\Admn\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "require": {
-        "auditit/auditit-php": "*"
+        "admn/admn-php": "*"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Auditit\\AudititLaravel\\AuditItServiceProvider"
+                "Admn\\Admn\\AdmnServiceProvider"
             ],
             "aliases": {
 

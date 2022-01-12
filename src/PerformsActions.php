@@ -1,6 +1,6 @@
 <?php
 
-namespace Auditit\AudititLaravel;
+namespace Admn\Admn;
 
 trait PerformsActions
 {

@@ -1,11 +1,10 @@
 <?php
 
-namespace Auditit\AudititLaravel;
+namespace Admn\Admn;
 
-use Auditit\Auditit\AuditLogger;
 use Illuminate\Database\Eloquent\Model;
 
-class AuditItObserver
+class AdmnObserver
 {
 
     public function creating(Model $model)
