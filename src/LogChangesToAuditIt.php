@@ -17,7 +17,8 @@ trait LogChangesToAuditIt
 
     public function getAuditModelName()
     {
-        $class =  new \ReflectionClass(get_class($this));
+        $class = new \ReflectionClass(get_class($this));
+
         return empty($this->auditModelName) ? $class->getShortName() : strtoupper($this->auditModelName);
     }
 
@@ -26,13 +27,15 @@ trait LogChangesToAuditIt
         return (array)$this->redactedAuditAttributes;
     }
 
-    public function getIgnoredAuditAttributes(){
+    public function getIgnoredAuditAttributes()
+    {
         return (array)$this->ignoreAuditAttributes;
     }
 
-    public function getAuditTags(){
+    public function getAuditTags()
+    {
         return [
-            $this->getAuditModelName().':'.$this->getKey(),
+            $this->getAuditModelName() . ':' . $this->getKey(),
             'action_type:model_audit'
         ];
     }
