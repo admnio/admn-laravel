@@ -4,26 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fed3841cba942c21fa170f1f72394530",
+    "content-hash": "9af714329b2eb28d87d25ffa83aa38a5",
     "packages": [
         {
             "name": "admn/admn-php",
-            "version": "dev-master",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/admnio/admn-php.git",
-                "reference": "26cb1f4a60e30800dc01120d2a5d282d8cc68bba"
+                "reference": "ac55d7526a81648bb9607184446ed349899e0315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/admnio/admn-php/zipball/26cb1f4a60e30800dc01120d2a5d282d8cc68bba",
-                "reference": "26cb1f4a60e30800dc01120d2a5d282d8cc68bba",
+                "url": "https://api.github.com/repos/admnio/admn-php/zipball/ac55d7526a81648bb9607184446ed349899e0315",
+                "reference": "ac55d7526a81648bb9607184446ed349899e0315",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": ">=7.4.2"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -34,9 +33,9 @@
             "description": "PHP Package To Interact With ADMN Service",
             "support": {
                 "issues": "https://github.com/admnio/admn-php/issues",
-                "source": "https://github.com/admnio/admn-php/tree/1.0.10"
+                "source": "https://github.com/admnio/admn-php/tree/1.0.12"
             },
-            "time": "2022-04-18T01:49:20+00:00"
+            "time": "2022-08-12T03:38:36+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -44,18 +43,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "82ca75f0b1f130f018febdda29af13086da5dbac"
+                "reference": "4e28ee5d7ee044ebd9be0ab8852997e2bd034cce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/82ca75f0b1f130f018febdda29af13086da5dbac",
-                "reference": "82ca75f0b1f130f018febdda29af13086da5dbac",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4e28ee5d7ee044ebd9be0ab8852997e2bd034cce",
+                "reference": "4e28ee5d7ee044ebd9be0ab8852997e2bd034cce",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/promises": "^1.5",
-                "guzzlehttp/psr7": "^1.8.3 || ^2.1",
+                "guzzlehttp/psr7": "^1.9 || ^2.4",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.2 || ^3.0"
@@ -161,7 +160,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-20T14:21:21+00:00"
+            "time": "2022-07-31T09:40:09+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -169,12 +168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da"
+                "reference": "a872440174bcdfd3392831de339656ac56122e26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
-                "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a872440174bcdfd3392831de339656ac56122e26",
+                "reference": "a872440174bcdfd3392831de339656ac56122e26",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +229,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.5.1"
+                "source": "https://github.com/guzzle/promises/tree/master"
             },
             "funding": [
                 {
@@ -246,7 +245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-22T20:56:57+00:00"
+            "time": "2022-07-31T08:57:45+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -254,12 +253,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "5c693242bede743c23402bc5b9de62da04a882d7"
+                "reference": "8f0a09ce19adcf28f25ff9d90e7329488501b363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c693242bede743c23402bc5b9de62da04a882d7",
-                "reference": "5c693242bede743c23402bc5b9de62da04a882d7",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/8f0a09ce19adcf28f25ff9d90e7329488501b363",
+                "reference": "8f0a09ce19adcf28f25ff9d90e7329488501b363",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +283,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -362,7 +361,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-24T01:07:58+00:00"
+            "time": "2022-07-31T08:48:33+00:00"
         },
         {
             "name": "psr/http-client",
@@ -423,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd"
+                "reference": "5a4f141ac2e5bc35e615134f127e1833158d2944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
-                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/5a4f141ac2e5bc35e615134f127e1833158d2944",
+                "reference": "5a4f141ac2e5bc35e615134f127e1833158d2944",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +470,7 @@
             "support": {
                 "source": "https://github.com/php-fig/http-factory/tree/master"
             },
-            "time": "2020-09-17T16:52:55+00:00"
+            "time": "2022-07-14T07:21:53+00:00"
         },
         {
             "name": "psr/http-message",
@@ -577,12 +576,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918"
+                "reference": "4912000e79dc2d6df029d35d8755be1ed79b6691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
-                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/4912000e79dc2d6df029d35d8755be1ed79b6691",
+                "reference": "4912000e79dc2d6df029d35d8755be1ed79b6691",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +591,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.1-dev"
+                    "dev-main": "3.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -637,7 +636,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T11:15:52+00:00"
+            "time": "2022-05-20T13:56:22+00:00"
         }
     ],
     "packages-dev": [],
@@ -648,5 +647,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

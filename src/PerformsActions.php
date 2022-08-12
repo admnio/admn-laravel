@@ -7,21 +7,22 @@ use Illuminate\Support\Str;
 trait PerformsActions
 {
     /**
-     * @param $action
-     * @param $tags
-     * @param $context
-     * @return array|void
+     * @param string $action
+     * @param array $tags
+     * @param array $context
+     * @return array
+     * @throws \Exception
      */
-    public function logAction($action, $tags = [], $context = [])
+    public function logAction(string $action, array $tags = [], array $context = [])
     {
-        return AuditLogger::create($this->getAuditIdentifier(), $action, $tags, $context);
-    }
-
-    /**
-     * @return AuditLogger
-     */
-    public final function actionBuilder(){
-        return AuditLogger::make();
+        return AuditLogger::make(
+            (new Actor)->setIdentifier(
+                $this->getAuditIdentifierKey(), $this->getAuditIdentifierValue()
+            ))
+            ->setAction($action)
+            ->setTags($tags)
+            ->setContext($context)
+            ->save();
     }
 
     /**
@@ -33,7 +34,7 @@ trait PerformsActions
     }
 
     /**
-     * @return mixed
+     * @return string|int
      */
     protected function getAuditIdentifierValue()
     {
@@ -41,7 +42,7 @@ trait PerformsActions
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     protected final function getAuditIdentifier()
     {

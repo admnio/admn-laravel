@@ -8,7 +8,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "admn/admn-php": "*"
+        "admn/admn-php": "1.0.12"
     },
     "extra": {
         "laravel": {
