@@ -40,12 +40,15 @@ trait PerformsActions
      */
     protected function getAuditDisplayValue()
     {
+        if($this->getAuditIdentifier()){
+            return $this->getAuditIdentifier();
+        }
 
         if (method_exists($this, '__toString')) {
             return $this->__toString();
         }
 
-        return $this->getAuditIdentifier();
+        return $this->getKey();
     }
 
     /**
