@@ -20,7 +20,7 @@ trait PerformsActions
                 ->setIdentifier(
                     $this->getAuditIdentifierKey(), $this->getAuditIdentifierValue()
                 )
-                ->setDisplay($this->AuditDisplay())
+                ->setDisplay($this->getAuditDisplayValue())
         )->setAction($action)
             ->setTags($tags)
             ->setContext($context)
