@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9af714329b2eb28d87d25ffa83aa38a5",
+    "content-hash": "932f36cc9ac340ca1e7bf3c164e5fca4",
     "packages": [
         {
             "name": "admn/admn-php",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/admnio/admn-php.git",
-                "reference": "ac55d7526a81648bb9607184446ed349899e0315"
+                "reference": "09697501b562acc19ac721b07c76957d9905c510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/admnio/admn-php/zipball/ac55d7526a81648bb9607184446ed349899e0315",
-                "reference": "ac55d7526a81648bb9607184446ed349899e0315",
+                "url": "https://api.github.com/repos/admnio/admn-php/zipball/09697501b562acc19ac721b07c76957d9905c510",
+                "reference": "09697501b562acc19ac721b07c76957d9905c510",
                 "shasum": ""
             },
             "require": {
@@ -33,9 +33,9 @@
             "description": "PHP Package To Interact With ADMN Service",
             "support": {
                 "issues": "https://github.com/admnio/admn-php/issues",
-                "source": "https://github.com/admnio/admn-php/tree/1.0.12"
+                "source": "https://github.com/admnio/admn-php/tree/1.0.13"
             },
-            "time": "2022-08-12T03:38:36+00:00"
+            "time": "2022-08-13T01:38:12+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
