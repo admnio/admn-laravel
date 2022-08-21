@@ -23,7 +23,7 @@ composer require admn/admn-laravel
 ```php
 <?php 
 
-namspace App;
+namspace App\Models;
 
 class User extends Authenticatable {
     ...
