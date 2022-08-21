@@ -49,12 +49,14 @@ class AdmnObserver
 
     public function updating(Model $model)
     {
-        $originalValues = $model->getChanges();
+        $originalValues = $model->getOriginal();
+        $changedValues = $model->getChanges();
+
         $redactedAttributes = $model->getRedactedAuditAttributes();
 
         $updatedValues = [];
 
-        foreach ($originalValues as $key => $originalValue) {
+        foreach ($changedValues as $key => $changedValue) {
             if (in_array($key, $model->getIgnoredAuditAttributes())) {
                 continue;
             }
@@ -62,14 +64,14 @@ class AdmnObserver
             if (in_array($key, $redactedAttributes)) {
                 $updatedValues[] = [
                     'key'      => $key,
-                    'original' => $this->redact($originalValue),
-                    'updated'  => $this->redact($model->$key),
+                    'original' => $this->redact($originalValues[$key]),
+                    'updated'  => $this->redact($changedValue),
                 ];
             } else {
                 $updatedValues[] = [
                     'key'      => $key,
-                    'original' => $originalValue,
-                    'updated'  => $model->$key,
+                    'original' => $originalValues[$key],
+                    'updated'  => $changedValue,
                 ];
             }
         }
