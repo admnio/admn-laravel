@@ -44,11 +44,6 @@ class AdmnObserver
 
     public function updated(Model $model)
     {
-
-    }
-
-    public function updating(Model $model)
-    {
         $originalValues = $model->getOriginal();
         $changedValues = $model->getChanges();
 
