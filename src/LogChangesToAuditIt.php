@@ -36,7 +36,6 @@ trait LogChangesToAuditIt
     {
         return [
             $this->getAuditModelName() . ':' . $this->getKey(),
-            'action-type:model audit'
         ];
     }
 }
