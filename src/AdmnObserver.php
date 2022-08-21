@@ -18,7 +18,7 @@ class AdmnObserver
         $redactedAttributes = $model->getRedactedAuditAttributes();
         $createdValues = [];
 
-        foreach ($model->getAttributes() as $key => $value) {
+        foreach ($model->toArray() as $key => $value) {
             if (in_array($key, $model->getIgnoredAuditAttributes())) {
                 continue;
             }
@@ -36,15 +36,20 @@ class AdmnObserver
             }
         }
 
-        if(auth()->check()){
+        if (auth()->check()) {
             $user = auth()->user();
-            $user->logAction(  'Created a ' . $model->getAuditModelName() . ' record', $model->getAuditTags(), $createdValues);
+            $user->logAction('Created a ' . $model->getAuditModelName() . ' record', $model->getAuditTags(), $createdValues);
         }
     }
 
     public function updated(Model $model)
     {
-        $originalValues = $model->getOriginal();
+
+    }
+
+    public function updating(Model $model)
+    {
+        $originalValues = $model->getChanges();
         $redactedAttributes = $model->getRedactedAuditAttributes();
 
         $updatedValues = [];
@@ -54,35 +59,32 @@ class AdmnObserver
                 continue;
             }
 
-            if ($originalValue != $model->$key) {
-
-                if (in_array($key, $redactedAttributes)) {
-                    $updatedValues[] = [
-                        'key'      => $key,
-                        'original' => $this->redact($originalValue),
-                        'updated'  => $this->redact($model->$key),
-                    ];
-                } else {
-                    $updatedValues[] = [
-                        'key'      => $key,
-                        'original' => $originalValue,
-                        'updated'  => $model->$key,
-                    ];
-                }
+            if (in_array($key, $redactedAttributes)) {
+                $updatedValues[] = [
+                    'key'      => $key,
+                    'original' => $this->redact($originalValue),
+                    'updated'  => $this->redact($model->$key),
+                ];
+            } else {
+                $updatedValues[] = [
+                    'key'      => $key,
+                    'original' => $originalValue,
+                    'updated'  => $model->$key,
+                ];
             }
         }
 
-        if (count($updatedValues) && auth()->check()){
+        if (count($updatedValues) && auth()->check()) {
             $user = auth()->user();
-            $user->logAction(  'Updated a ' . $model->getAuditModelName() . ' record', $model->getAuditTags(), $updatedValues);
+            $user->logAction('Updated a ' . $model->getAuditModelName() . ' record', $model->getAuditTags(), $updatedValues);
         }
     }
 
     public function deleted(Model $model)
     {
-        if (auth()->check()){
+        if (auth()->check()) {
             $user = auth()->user();
-            $user->logAction(  'Deleted a ' . $model->getAuditModelName() . ' record', $model->getAuditTags());
+            $user->logAction('Deleted a ' . $model->getAuditModelName() . ' record', $model->getAuditTags());
         }
     }
 
