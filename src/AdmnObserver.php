@@ -59,13 +59,13 @@ class AdmnObserver
             if (in_array($key, $redactedAttributes)) {
                 $updatedValues[] = [
                     'key'      => $key,
-                    'original' => $this->redact($originalValues[$key]),
+                    'original' => $this->redact(data_get($originalValues,$key)),
                     'updated'  => $this->redact($changedValue),
                 ];
             } else {
                 $updatedValues[] = [
                     'key'      => $key,
-                    'original' => $originalValues[$key],
+                    'original' => data_get($originalValues,$key),
                     'updated'  => $changedValue,
                 ];
             }
