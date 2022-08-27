@@ -9,7 +9,7 @@ A simple wrapper for [ADMN.io](https://admn.io) API written in PHP for Laravel.
 ## Requirements
 
 - PHP 7+
-- [ADMN PHP SDK](https://github.com/admnio/admn-laravel) (automatically installed via Composer dependency)
+- [ADMN PHP SDK](https://github.com/admnio/admn-php) (automatically installed via Composer dependency)
 
 ## Installation
 
