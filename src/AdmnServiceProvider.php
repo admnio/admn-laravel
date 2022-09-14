@@ -2,11 +2,9 @@
 
 namespace Admn\Admn;
 
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
-use Spatie\LaravelPackageTools\Package;
+use Illuminate\Support\ServiceProvider;
 
-class AdmnServiceProvider extends PackageServiceProvider
+class AdmnServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -25,21 +23,10 @@ class AdmnServiceProvider extends PackageServiceProvider
      */
     public function boot()
     {
-        AuditLogger::setCredentials(config('admn.token'), config('admn.secret'));
-    }
+        $this->publishes([
+            __DIR__.'/../config/admn.php' => config_path('admn.php'),
+        ]);
 
-    public function configurePackage(Package $package): void
-    {
-        $package
-            ->name('admn-laravel')
-            ->hasConfigFile(['admn'])
-            ->hasInstallCommand(function(InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->askToStarRepoOnGitHub('admnio/admn-laravel')
-                    ->endWith(function(InstallCommand $command) {
-                        $command->info('Happy Auditing!');
-                    });
-            });
+        AuditLogger::setCredentials(config('admn.token'), config('admn.secret'));
     }
 }
