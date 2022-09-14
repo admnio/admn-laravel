@@ -8,7 +8,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "admn/admn-php": "1.0.13"
+        "admn/admn-php": "1.0.13",
+        "spatie/laravel-package-tools": "dev-main"
     },
     "extra": {
         "laravel": {
