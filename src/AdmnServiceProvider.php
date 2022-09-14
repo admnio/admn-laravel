@@ -31,7 +31,7 @@ class AdmnServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('admn')
+            ->name('admn-laravel')
             ->hasConfigFile(['admn'])
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
