@@ -81,3 +81,11 @@ class User extends Authenticatable {
         ]
     );
 ```
+
+
+## Coming Soon
+
+* [ ] Ability to retrieve actions from the API for an actor
+* [ ] Ability to offload action recording to queue
+* [ ] Ability to select a region (as more regions become available)
+
