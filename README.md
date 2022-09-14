@@ -17,6 +17,8 @@ Via Composer.
 
 ```bash
 composer require admn/admn-laravel
+
+php artisan vendor:publish --provider="Admn\Admn\AdmnServiceProvider"
 ```
 
 ## Model Configuration
