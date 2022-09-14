@@ -24,7 +24,7 @@ class AdmnServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/admn.php' => config_path('admn.php'),
+            __DIR__.'/config/admn.php' => config_path('admn.php'),
         ]);
 
         AuditLogger::setCredentials(config('admn.token'), config('admn.secret'));
